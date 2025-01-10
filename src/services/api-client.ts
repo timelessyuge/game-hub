@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { Game } from "../hooks/useGames";
 
 export interface FetchResponse<T> {
   count: number;
@@ -24,6 +25,9 @@ class APIClient<T> {
     axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
+
+  getGameDetail = (id: string) =>
+    axiosInstance.get<Game>(this.endpoint + "/" + id).then((res) => res.data);
 
   post = (data: T) =>
     axiosInstance
