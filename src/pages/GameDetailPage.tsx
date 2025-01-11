@@ -9,7 +9,12 @@ import useGame from "../hooks/useGame";
 const GameDetailPage = () => {
   const { slug } = useParams();
   const { data: game, isLoading, error } = useGame(slug!);
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <Box paddingX={5}>
+        <Spinner />
+      </Box>
+    );
   if (error || !game) throw error;
   return (
     <SimpleGrid paddingX={5} columns={{ base: 1, md: 2 }} spacing={5}>
