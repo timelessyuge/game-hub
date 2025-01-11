@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 
 export interface FetchResponse<T> {
   count: number;
